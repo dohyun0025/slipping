@@ -16,10 +16,12 @@ public class Content {
 		this.note = string2;
 		this.time = string3;
 	}
-
-	public int getIndex() {
+	public void nextIndex(){
 		number++;
-		setIndex(number);
+		setIndex(number);		
+	}
+	
+	public int getIndex() {
 		return index;
 	}
 	public void setIndex(int index) {

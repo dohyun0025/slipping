@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SLiPP :: 로그인</title>
+<title>SLiPP :: 새 글 작성 </title>
 
 <%@ include file="../commons/_header.jspf"%>
 
@@ -17,32 +17,45 @@
 			<div class="span12">
 				<section id="typography">
 				<div class="page-header">
-					<h1>로그인</h1>
+
+				
+					
 				</div>
-				<form class="form-horizontal" action="/users/login" method="post">
+				
+				<c:set var="forwardUrl" value="/contents" /> <!-- create -->
+				
+				<!--
+				<c:if test="${not empty user.userId}">
+				<c:set var="forwardUrl" value="/users/${user.userId}" /> 
+				</c:if>
+				-->
+				
+				<form class="form-horizontal" action="${forwardUrl}" method="post">
 					<div class="control-group">
-						<label class="control-label" for="userId">사용자 아이디</label>
+						<label class="control-label" for="subject">제목 : </label>						
 						<div class="controls">
-							<input type="text" id="userId" name="userId" placeholder="" value="dohyun0025">
+							<input type="text" id="subject" name="subject" value="${content.subject}" placeholder="" readonly>
 						</div>
 					</div>
+					
 					<div class="control-group">
-						<label class="control-label" for="password">비밀번호</label>
+						<label class="control-label" for="note">내용 : </label>
 						<div class="controls">
-							<input type="password" id="password" name="password" placeholder="" value="3470mi">
+							<textarea cols=45 rows=10 id="note" name="note"  placeholder="" readonly>
+							${content.note}
+							</textarea>
 						</div>
 					</div>
-					<c:if test="${not empty errorMessage}">
+					
+					
 					<div class="control-group">
 						<div class="controls">
-							<div class="error">${errorMessage}</div>							
+							
 						</div>
-					</div>					
-					</c:if>
+					</div>
+					
 					<div class="control-group">
-						<div class="controls">
-							<button type="submit" class="btn btn-primary">로그인</button>
-						</div>
+						
 					</div>
 				</form>
 			</div>

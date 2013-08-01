@@ -50,7 +50,13 @@ public class ContentController {
 		cs.insert(content);
 		return "redirect:contents/list";
 	}
-
+	@RequestMapping(value="/{index}", method = RequestMethod.GET)
+	public String show(@PathVariable String index, Model model){
+		Content c = cs.findByID(index);
+		model.addAttribute("content", c);
+		
+		return "content/show";
+	}
 	
 	//@RequestMapping(value = "", method = RequestMethod.POST)
 

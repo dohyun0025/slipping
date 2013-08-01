@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<section id="typography">
+				<section id="typography">d
 				<div class="page-header">
 					<h1 >게시물 보기 </h1>
 					<c:if test="${not empty loginUser}">
@@ -24,33 +24,32 @@
 				</div>
 				
 				<form class="form-horizontal" action="${forwardUrl}" method="post">
-				
+				<table border=1 width=800>
 					<c:forEach var="entry" items="${contents}" varStatus="status">
-					<div class="control-group">								      
-    				 		<label class="control-label" for="userId"> <b><font size=10>${entry.key}</font></b></label>
-    				 		<div class="controls"> ${entry.value.getSubject()}</div>
-    				 		<div>
-    				 		
-    				 		
-    				 		</div>
-    					<br>    				
+					<div class="control-group">								   
+					<tr>   
+    				 		<td><label class="control-label" for="userId"> <b><font size=10>${entry.index}</font></b></label></td>
+    				 		<td><div class="controls"> <a href="/contents/${entry.index}">${entry.subject}</a></div></td>
+    				 		<td><div class="controls"> ${entry.time}</div></td>
+    				</tr>
+    					    				
     				</div>			
     				</c:forEach>	
-    				
+    			</table>	
 					<div class="control-group">
 						
 					</div>
 					<div class="control-group">
+							
+						</div>
+						<div class="control-group">
+							
+						</div>
 						
-					</div>
-					<div class="control-group">
 						
-					</div>
-					
-					
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
-</html>
+	</body>
+	</html>
