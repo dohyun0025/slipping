@@ -26,12 +26,10 @@
 				</div>
 				
 				<c:set var="forwardUrl" value="/contents" /> <!-- create -->
-				
-				<!--
-				<c:if test="${not empty user.userId}">
-				<c:set var="forwardUrl" value="/users/${user.userId}" /> 
-				</c:if>
-				-->
+							
+				<c:if test="${not empty forwardPage}">
+					<c:set var="forwardUrl" value="/contents/${index}" /> 
+				</c:if> 
 				
 				<form class="form-horizontal" action="${forwardUrl}" method="post">
 					<div class="control-group">
@@ -44,9 +42,7 @@
 					<div class="control-group">
 						<label class="control-label" for="note">내용 : </label>
 						<div class="controls">
-							<textarea cols=45 rows=10 id="note" name="note"  placeholder="">
-							${content.note}
-							</textarea>
+							<textarea cols=45 rows=10 id="note" name="note">${content.note}</textarea>
 						</div>
 					</div>
 					
@@ -59,7 +55,7 @@
 					
 					<div class="control-group">
 						<div class="controls">
-							<button type="submit" class="btn btn-primary">회원가입</button>
+							<button type="submit" class="btn btn-primary">등록 </button>
 						</div>
 					</div>
 				</form>

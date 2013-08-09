@@ -22,7 +22,7 @@
               <li><a href="/users/${loginUser.userId}/form">개인정보수정</a></li>                        
               </c:otherwise>
               </c:choose>
-              <li><a href="/contents/list">게시물보기 </a></li> 
+              <li><a href="/contents/list">Q&A </a></li> 
             </ul>
           </div>
         </div>

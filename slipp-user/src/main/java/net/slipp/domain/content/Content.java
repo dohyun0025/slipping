@@ -6,6 +6,7 @@ public class Content {
 	private String subject;     //제목 
 	private String note;		//내용 
 	private String time;		//시간 
+	private String owner;
 	
 	public Content(){
 	}
@@ -19,6 +20,12 @@ public class Content {
 	public void nextIndex(){
 		number++;
 		setIndex(number);		
+	}
+	public void setOwner(String owner){
+		this.owner = owner;
+	}
+	public String getOwner(){
+		return owner;
 	}
 	
 	public int getIndex() {
@@ -44,5 +51,9 @@ public class Content {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public void update(Content updatedContent){
+		this.subject = updatedContent.getSubject();
+		this.note = updatedContent.getNote(); 
 	}
 }

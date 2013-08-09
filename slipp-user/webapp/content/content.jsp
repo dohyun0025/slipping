@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SLiPP :: 게시물 보기 </title>
+<title>SLiPP :: Q&A </title>
 
 <%@ include file="../commons/_header.jspf"%>
 
@@ -15,26 +15,39 @@
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<section id="typography">d
+				<section id="typography">
 				<div class="page-header">
-					<h1 >게시물 보기 </h1>
-					<c:if test="${not empty loginUser}">
-					<a style=float:right href="/contents/form">새글쓰기</a> 
-					</c:if>
+					<h1 >Q&A </h1>
+					<a style=float:right href="/contents/form">질문 하기</a> 
+					
 				</div>
 				
 				<form class="form-horizontal" action="${forwardUrl}" method="post">
-				<table border=1 width=800>
+				<table border=1 width=810>
+					<tr bgcolor="yellow">
+						<td align=left width=1><label class="control-label"><b>index</b></label></td>
+						<td align=center><b>제목</b></td>
+						<td align=center><b>작성 시간</b></td>
+						<td align=center><b>작성자</b></td>
+					</tr>
+					
+					<c:choose>
+					<c:when test="${empty contents}">
+						<tr><td colspan=4 align = center>작성된글이 없습니다.</td></tr>
+					</c:when>
+					</c:choose>
+					
 					<c:forEach var="entry" items="${contents}" varStatus="status">
 					<div class="control-group">								   
 					<tr>   
-    				 		<td><label class="control-label" for="userId"> <b><font size=10>${entry.index}</font></b></label></td>
-    				 		<td><div class="controls"> <a href="/contents/${entry.index}">${entry.subject}</a></div></td>
-    				 		<td><div class="controls"> ${entry.time}</div></td>
+    				 		<td width=1><label class="control-label" for="userId"> <b>${entry.index}</b></label></td>
+    				 		<td width=300 align = center> <a href="/contents/${entry.index}">${entry.subject}</a></td>
+    				 		<td width=150 align = center> ${entry.time}</td>
+    				 		<td width=150 align = center> ${entry.owner}</td>
     				</tr>
     					    				
     				</div>			
-    				</c:forEach>	
+    				</c:forEach>		
     			</table>	
 					<div class="control-group">
 						
