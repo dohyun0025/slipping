@@ -2,16 +2,16 @@ package net.slipp.service.reply;
 
 import javax.annotation.Resource;
 
-import net.slipp.dao.contents.ContentDao;
-import net.slipp.dao.reply.MemoryReplyDao;
+import net.slipp.dao.reply.ReplyDao;
 import net.slipp.domain.user.User;
 
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class ReplyService {
-	@Resource(name="memoryQnaDao")
-	MemoryReplyDao replyDao;
+	@Resource(name="replyDao")
+	ReplyDao replyDao;
 
 	public void insert(String index, String reply, User user) {
 		replyDao.insert(index, reply, user);		
@@ -23,6 +23,5 @@ public class ReplyService {
 
 	public void delete(String id) {
 		replyDao.delete(id);
-		
 	}
 }

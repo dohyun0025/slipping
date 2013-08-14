@@ -115,12 +115,9 @@
 							</div>
 					</div>
 				</form>
-				
+				<c:choose>
+				<c:when test="${not empty loginUser}">
 				<form class="form-horizontal" action="/qnas/insert" method="post">
-				
-					
-				
-				
 						<input type=hidden name="index" value="${index}">
 						<div class="control-group">
 						<div class="span7">
@@ -143,10 +140,9 @@
 						</table>
 						</div>
 						</div>
-						
-						
 				</form>
-				
+				</c:when>
+				</c:choose>		
 						
 </body>
 </html>

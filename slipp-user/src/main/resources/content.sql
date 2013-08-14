@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS CONTENTS;
+	
+CREATE TABLE CONTENTS (
+	index				INTEGER 		NOT NULL 	IDENTITY 	PRIMARY KEY,
+	subject			VARCHAR(20)	,
+	note			VARCHAR(500),
+	time		VARCHAR(30)	NOT NULL,
+	owner			VARCHAR(30)		NOT NULL
+);
+INSERT INTO CONTENTS VALUES(1,'1번내용 ','1번내용내용 ',now(),'admin');
+INSERT INTO CONTENTS VALUES(2,'2번내용 ','2번내용내용 ',now(),'dohyun0025');
+INSERT INTO CONTENTS VALUES(3,'3번내용 ','3번내용내용 ',now(),'admin');

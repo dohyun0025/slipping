@@ -1,14 +1,9 @@
 package net.slipp.domain.reply;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import net.slipp.domain.user.User;
 
 public class Reply {
 	private String id;
-	
 	private String index;
 	private String reply;
 	private String userId;
@@ -18,12 +13,14 @@ public class Reply {
 		this.index = index;
 		this.reply = reply;
 		this.userId = user.getUserId();
-		
-		long time = System.currentTimeMillis(); 
-		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd HH:mm",Locale.KOREA);
-		String str = dayTime.format(new Date(time));
-		
-		this.time = str;
+	}
+	public Reply(int id, int index, String reply, String time,
+			String userId) {
+		this.id=id+"";
+		this.index=index+"";
+		this.reply=reply;
+		this.time=time;
+		this.userId=userId;
 		
 	}
 	public void setId(String id){

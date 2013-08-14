@@ -9,6 +9,6 @@ public interface ContentDao {
 	void insert(Content content);
 	Content findByID(String index);
 	ArrayList<Content> getContents();
-	void addReply(String index, String reply);
+	void update(String index, Content content);
 
 }

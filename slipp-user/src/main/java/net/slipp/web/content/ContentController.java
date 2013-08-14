@@ -8,8 +8,6 @@ import net.slipp.service.content.ContentService;
 import net.slipp.service.content.OwnerNotEqualException;
 import net.slipp.service.reply.ReplyService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,9 +62,8 @@ public class ContentController {
 	}
 
 	@RequestMapping(value="/{index}", method = RequestMethod.POST)
-	public String update(@PathVariable String index, Content content, HttpSession session){
-		Content preContent = cs.findByID(index);
-		preContent.update(content);
+	public String update(@PathVariable String index, Content content){
+		cs.update(index, content);
 		
 		return "redirect:/contents/list";
 	}

@@ -1,7 +1,6 @@
 package net.slipp.domain.content;
 
 public class Content {
-	private static int number=0;//Map에서 유니크한 키넘버를 위한 변수 
 	private int index;			//글의 번호 
 	private String subject;     //제목 
 	private String note;		//내용 
@@ -12,14 +11,17 @@ public class Content {
 	}
 	public Content(String string, String string2, String string3) {
 		// TODO Auto-generated constructor stub
-		this.index = number;
 		this.subject = string;
 		this.note = string2;
 		this.time = string3;
 	}
-	public void nextIndex(){
-		number++;
-		setIndex(number);		
+	public Content(int index, String subject, String note, String time,String owner) {
+		// TODO Auto-generated constructor stub
+		this.index = index;
+		this.subject = subject;
+		this.note = note;
+		this.time = time;
+		this.owner = owner;
 	}
 	public void setOwner(String owner){
 		this.owner = owner;
@@ -47,7 +49,7 @@ public class Content {
 		this.note = note;
 	}
 	public String getTime() {
-		return time;
+		return time.substring(0,16);
 	}
 	public void setTime(String time) {
 		this.time = time;
